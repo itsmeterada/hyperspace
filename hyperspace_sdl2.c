@@ -767,8 +767,8 @@ static float decode_byte(void) {
 static void decode_mesh(Mesh* mesh, float scale) {
     int nb_vert = (int)decode_byte();
     mesh->num_vertices = nb_vert;
-    mesh->vertices = calloc(nb_vert, sizeof(Vec3));
-    mesh->projected = calloc(nb_vert, sizeof(Vec3));
+    mesh->vertices = (Vec3*)calloc(nb_vert, sizeof(Vec3));
+    mesh->projected = (Vec3*)calloc(nb_vert, sizeof(Vec3));
 
     printf("Decoding mesh: %d vertices at mem_pos=%d\n", nb_vert, mem_pos);
 
@@ -780,7 +780,7 @@ static void decode_mesh(Mesh* mesh, float scale) {
 
     int nb_tri = (int)decode_byte();
     mesh->num_triangles = nb_tri;
-    mesh->triangles = calloc(nb_tri, sizeof(Triangle));
+    mesh->triangles = (Triangle*)calloc(nb_tri, sizeof(Triangle));
 
     printf("Decoding mesh: %d triangles\n", nb_tri);
 
@@ -1109,7 +1109,7 @@ static Enemy* spawn_nme(int type, Vec3 pos) {
     memset(nme, 0, sizeof(Enemy));
     vec3_copy(&nme->pos, &pos);
     nme->type = type;
-    nme->proj = calloc(nme_meshes[type - 1].num_vertices, sizeof(Vec3));
+    nme->proj = (Vec3*)calloc(nme_meshes[type - 1].num_vertices, sizeof(Vec3));
     nme->life = nme_life[type - 1];
     nme->hit_t = -1;
     num_enemies++;
