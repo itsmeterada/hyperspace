@@ -8,6 +8,10 @@ A native SDL2 port of the PICO-8 game **Hyperspace** by [J-Fry](https://www.lexa
 
 Hyperspace is a 3D space shooter originally created for PICO-8. This project ports the game to native C using SDL2, allowing it to run without the PICO-8 runtime.
 
+## Related
+
+- [picosystem_hyperspace](https://github.com/itsmeterada/picosystem_hyperspace) - Pimoroni PicoSystem version
+
 ## Requirements
 
 - SDL2 library
