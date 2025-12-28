@@ -1761,7 +1761,7 @@ static void transform_vert(void) {
     if (tgt_pos) tgt_z = tgt_pos->z;
     aim_z += (tgt_z - aim_z) * 0.2f;
 
-    Vec3 star_pos = {light_mat.m[2] * 100, light_mat.m[6] * 100, light_mat.m[10] * 100};
+    Vec3 star_pos = {-light_mat.m[2] * 100, -light_mat.m[6] * 100, light_mat.m[10] * 100};
     transform_pos(&star_proj, &ship_pos_mat, &star_pos);
 }
 
